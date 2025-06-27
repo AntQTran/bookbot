@@ -20,7 +20,9 @@ def book_report(file_contents: str) -> str:
                 Analyzing book found at books/frankenstein.txt...\n
                 ----------- Word Count ----------\n"""
     output_str += f"Found {num_words} total words\n--------- Character Count -------\n"
-    for k,v in dict(sorted(num_chars.items(), reverse=True, key=lambda x: x[1])):
+    # for k,v in dict(sorted(num_chars.items(),  key=lambda x: x[1], reverse=True)):
+    sorted_chars = dict(sorted(num_chars.items(), key=lambda x:x[1], reverse=True))
+    for k,v in sorted_chars.items():
         if k.isalpha():
             output_str += f"{k}: {v}\n"
     
